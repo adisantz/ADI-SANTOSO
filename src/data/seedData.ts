@@ -1,0 +1,596 @@
+import { ModuleItem, Quiz, QuizSubmission, UserProfile, UserSettings } from '../types/ipas';
+
+export const INITIAL_USER_GURU: UserProfile = {
+  id: 'guru-01',
+  role: 'guru',
+  name: 'Dra. Sri Wahyuni, M.Pd.',
+  idNumber: '19760512 200501 2 004',
+  email: 'sri.wahyuni@smkpgri5sby.sch.id',
+  avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80',
+  schoolName: 'SMK PGRI 5 Surabaya',
+  department: 'Koordinator Mata Pelajaran IPAS',
+  subjects: ['IPAS Kelas X (Semua Jurusan)'],
+  bio: 'Pendidik Projek IPAS SMK PGRI 5 Surabaya. Berdedikasi menghubungkan sains terapan dengan kompetensi kejuruan dan kelestarian lingkungan industri Surabaya.',
+  phone: '0812-3456-7890',
+};
+
+export const INITIAL_USER_SISWA: UserProfile = {
+  id: 'siswa-01',
+  role: 'siswa',
+  name: 'Dimas Arya Pamungkas',
+  idNumber: '24.10.0482',
+  email: 'dimas.arya@smkpgri5sby.sch.id',
+  avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
+  schoolName: 'SMK PGRI 5 Surabaya',
+  department: 'Teknik Kendaraan Ringan Otomotif (TKRO)',
+  className: 'X TKR 1',
+  bio: 'Siswa SMK PGRI 5 Surabaya peminat sains terapan, teknologi kelistrikan mesin ramah lingkungan, dan inovasi energi hijau Surabaya.',
+  phone: '0857-1122-3344',
+};
+
+export const INITIAL_SETTINGS: UserSettings = {
+  theme: 'pgri-blue',
+  fontSize: 'medium',
+  soundEnabled: true,
+  animationsEnabled: true,
+  highContrast: false,
+};
+
+export const INITIAL_MODULES: ModuleItem[] = [
+  {
+    id: 'modul-1',
+    title: 'Zat dan Perubahannya: Manajemen Limbah B3 Bengkel & Korosi Logam Kejuruan',
+    aspect: 'Zat dan Perubahannya',
+    chapterNumber: 1,
+    targetClasses: ['X TKR 1', 'X TKR 2', 'X RPL 1', 'X TBSM 1', 'X AKL 1'],
+    readTimeMinutes: 15,
+    summary: 'Mempelajari klasifikasi materi, pemisahan campuran, reaksi korosi pada rangka logam kejuruan di iklim maritim Surabaya, serta tata kelola limbah B3 bengkel sesuai AMDAL.',
+    author: 'Dra. Sri Wahyuni, M.Pd.',
+    createdAt: '2026-09-10',
+    keyConcepts: [
+      'Klasifikasi Materi (Unsur, Senyawa, Campuran)',
+      'Perubahan Fisika vs Perubahan Kimia',
+      'Mekanisme Korosi Elektrokimia pada Logam',
+      'Penanganan Limbah B3 (Oli Bekas, Aki Asam Sulfat)',
+      'Metode Pencegahan Korosi (Galvanisasi & Pelapisan Cat)',
+    ],
+    vocationalConnection: 'Sangat esensial untuk siswa teknik otomotif dan permesinan dalam menjaga umur pakai suku cadang, pelumasan mesin, serta keselamatan kerja K3LH di industri.',
+    content: `### 1. Klasifikasi Zat dan Wujud Materi
+Materi didefinisikan sebagai segala sesuatu yang memiliki massa dan menempati ruang. Dalam lingkungan bengkel otomotif dan laboratorium SMK PGRI 5 Surabaya, kita setiap hari berinteraksi dengan materi dalam wujud padat (baja, tembaga, piston), cair (oli pelumas, air aki $H_2SO_4$, minyak rem), dan gas (gas buang $CO$, $CO_2$, freon AC).
+
+### 2. Korosi Logam di Kawasan Surabaya
+Kota Surabaya sebagai kota pesisir memiliki kelembaban udara relatif tinggi dengan kadar ion klorida ($Cl^-$) dari hembusan angin laut Selat Madura dan Teluk Perak.
+* Korosi adalah reaksi elektrokimia antara logam (besi $Fe$) dengan oksigen ($O_2$) dan air ($H_2O$):
+  $$4Fe + 3O_2 + 6H_2O \\rightarrow 4Fe(OH)_3 \\rightarrow 2Fe_2O_3\\cdot 3H_2O \\text{ (Karat)}$$
+* Garam laut bertindak sebagai elektrolit yang mempercepat hantaran ion dan laju oksidasi besi.
+
+### 3. Pengelolaan Limbah B3 (Bahan Berbahaya dan Beracun) di SMK
+Limbah oli bekas mengandung hidrokarbon aromatik polisiklik (PAH) dan partikel logam berat aus ($Pb, Cr$). Dilarang membuang limbah oli ke selokan kota Surabaya karena 1 liter oli bekas dapat mencemari 1 juta liter air bersih!
+* **Penyimpanan:** Wadah drum berlabel B3, lantai bersemen kedap rembesan, dan memiliki *spill kit*.
+* **Pemanfaatan:** Disalurkan ke pihak pengumpul berizin Kementerian LHK untuk proses *re-refining*.`,
+  },
+  {
+    id: 'modul-2',
+    title: 'Energi dan Perubahannya: Konversi Energi Terbarukan & Efisiensi Daya Vokasi',
+    aspect: 'Energi dan Perubahannya',
+    chapterNumber: 2,
+    targetClasses: ['X TKR 1', 'X RPL 1', 'X TBSM 1', 'X AKL 1'],
+    readTimeMinutes: 18,
+    summary: 'Eksplorasi hukum kekekalan energi, konversi daya listrik-mekanik pada motor traksi kendaraan listrik (EV), dan potensi Pembangkit Listrik Tenaga Surya (PLTS) Rooftop di Surabaya.',
+    author: 'Dra. Sri Wahyuni, M.Pd.',
+    createdAt: '2026-09-22',
+    keyConcepts: [
+      'Hukum Kekekalan Energi (Termodinamika I)',
+      'Energi Kinetik, Potensial, dan Mekanik',
+      'Efisiensi Energi Sistem Mesin',
+      'Fotovoltaik (Solar Cell) Rooftop Surabaya',
+      'Baterai Lithium-ion dan Kendaraan Listrik (EV)',
+    ],
+    vocationalConnection: 'Menopang transisi kejuruan menuju era *Green Mobility* dan industri ramah lingkungan di Jawa Timur.',
+    content: `### 1. Energi dan Hukum Kekekalannya
+Energi tidak dapat diciptakan atau dimusnahkan, hanya dapat berubah dari satu bentuk ke bentuk lain.
+$$\\eta = \\frac{E_{\\text{keluaran berguna}}}{E_{\\text{masukan total}}} \\times 100\\%$$
+Mesin bensin konvensional hanya memiliki efisiensi termal sekitar 25-30%, sisanya terbuang sebagai panas dan gesekan. Sebaliknya, motor listrik modern mampu mencapai efisiensi lebih dari 85-90%.
+
+### 2. Potensi Energi Surya di Kota Surabaya
+Surabaya beriklim tropis dengan radiasi matahari rata-rata 4,8 hingga 5,2 kWh/m²/hari. Pemanfaatan PLTS Atap pada gedung bengkel SMK PGRI 5 Surabaya dapat memangkas konsumsi listrik beban puncak dan mengurangi emisi gas rumah kaca.`,
+  },
+  {
+    id: 'modul-3',
+    title: 'Makhluk Hidup dan Lingkungannya: Ekosistem Hutan Mangrove Wonorejo & Rantai Pangan Urban',
+    aspect: 'Makhluk Hidup dan Lingkungannya',
+    chapterNumber: 3,
+    targetClasses: ['X TKR 1', 'X RPL 1', 'X AKL 1'],
+    readTimeMinutes: 12,
+    summary: 'Studi kasus ekosistem pesisir Surabaya Timur (Mangrove Wonorejo dan Gunung Anyar), rantai makanan estuari, peranan abiotik dan biotik, serta upaya pelestarian keanekaragaman hayati.',
+    author: 'Dra. Sri Wahyuni, M.Pd.',
+    createdAt: '2026-10-01',
+    keyConcepts: [
+      'Komponen Biotik dan Abiotik',
+      'Interaksi Simbiosis dan Rantai Makanan Estuari',
+      'Fungsi Ekologis dan Ekonomis Hutan Bakau',
+      'Dampak Polusi Mikroplastik di Sungai Kalimas',
+      'Konservasi Keanekaragaman Hayati Surabaya',
+    ],
+    vocationalConnection: 'Membangun kesadaran *Ecoliteracy* bagi calon teknisi dan wirausahawan agar proses produksi tidak merusak habitat alami sekitar Surabaya.',
+    content: `### 1. Ekosistem Pesisir Surabaya
+Kawasan Pantai Timur Surabaya (Pamurbaya) membentang seluas lebih dari 2.500 hektar dengan vegetasi dominan *Avicennia marina* (Api-api) dan *Rhizophora mucronata* (Bakau kurap).
+
+### 2. Peran Ekologis Mangrove
+1. **Penahan Abrasi dan Intrusi Air Laut:** Perakaran tunjang yang lebat meredam hempasan gelombang Laut Jawa dan menahan sedimen lumpur.
+2. **Biofilter Logam Berat:** Tanaman mangrove mampu mengabsorpsi akumulasi polutan dari muaran Sungai Jagir dan Kalimas sebelum menuju laut lepas.
+3. **Penyerap Karbon (Blue Carbon):** Mampu menyerap karbon 3 hingga 5 kali lebih padat dibanding hutan daratan biasa.`,
+  },
+  {
+    id: 'modul-4',
+    title: 'Bumi dan Antariksa: Struktur Geologis Sesar Waru-Surabaya & Mitigasi Kebencanaan',
+    aspect: 'Bumi dan Antariksa',
+    chapterNumber: 4,
+    targetClasses: ['X TKR 1', 'X RPL 1', 'X TBSM 1', 'X AKL 1'],
+    readTimeMinutes: 14,
+    summary: 'Mengenal lapisan litosfer, lempeng tektonik, jalur aktif Sesar Surabaya-Warugunung (Kendeng), serta standar operasional prosedur mitigasi evakuasi tanggap darurat di lingkungan sekolah SMK.',
+    author: 'Dra. Sri Wahyuni, M.Pd.',
+    createdAt: '2026-10-08',
+    keyConcepts: [
+      'Litosfer, Mantel, dan Inti Bumi',
+      'Jalur Sesar Aktif Surabaya (Kendeng Fault)',
+      'Gelombang Seismik (P-wave dan S-wave)',
+      'SOP Evakuasi Tanggap Darurat di Bengkel Sekolah',
+      'Sistem Informasi Geografis dan Peringatan Dini BMKG',
+    ],
+    vocationalConnection: 'Standar K3 (Keselamatan dan Kesehatan Kerja) dan tanggap bencana di kawasan bengkel dan perkantoran.',
+    content: `### 1. Struktur Litosfer dan Jalur Tektonik Jawa Timur
+Berdasarkan data Pusat Studi Gempa Nasional (Pusgen), wilayah Surabaya dilintasi oleh jalur sesar aktif yaitu Sesar Surabaya dan Sesar Waru yang terhubung dengan zona Sesar Kendeng.
+Kecepatan pergeseran sesar ini berkisar antara 0,05 hingga 0,1 mm per tahun dengan potensi magnitudo gempa hingga M 6,5.
+
+### 2. Mitigasi Risiko di Area Kejuruan SMK
+Bengkel mesin dan komputer memiliki risiko tinggi jatuhnya peralatan berat, arus pendek listrik, serta kebakaran.
+* Langkah Segitiga Kehidupan (*Triangle of Life*) saat gempa.
+* Penempatan jalur evakuasi menuju lapangan terbuka SMK PGRI 5 Surabaya.`,
+  },
+  {
+    id: 'modul-5',
+    title: 'Interaksi Sosial dan Perilaku Ekonomi: Budaya Kerja Industri 5.0 & Wirausaha Vokasi',
+    aspect: 'Interaksi dan Dinamika Sosial',
+    chapterNumber: 5,
+    targetClasses: ['X TKR 1', 'X RPL 1', 'X TBSM 1', 'X AKL 1'],
+    readTimeMinutes: 16,
+    summary: 'Analisis dinamika sosial budaya kerja di era Society 5.0, penerapan 5R (Ringkas, Rapi, Resik, Rawat, Rajin), etika profesi vokasi, serta analisis peluang pasar digital di kota Surabaya.',
+    author: 'Dra. Sri Wahyuni, M.Pd.',
+    createdAt: '2026-10-15',
+    keyConcepts: [
+      'Konsep 5R / 5S Budaya Kerja Industri',
+      'Etika Profesi dan Tanggung Jawab Sosial (CSR)',
+      'Hukum Permintaan dan Penawaran Jasa Vokasi',
+      'Literasi Keuangan dan Digital Payment (QRIS)',
+      'Kolaborasi Interpersonal dan Komunikasi Asertif',
+    ],
+    vocationalConnection: 'Menyiapkan *soft skills* dan karakter lulusan SMK yang adaptif, berintegritas, dan berdaya saing global.',
+    content: `### 1. Budaya Kerja 5R (Seiri, Seiton, Seiso, Seiketsu, Shitsuke)
+1. **Ringkas (Seiri):** Memisahkan alat bengkel yang diperlukan dan tidak diperlukan.
+2. **Rapi (Seiton):** Menata peralatan pada tempat yang ditentukan dengan kode warna dan label.
+3. **Resik (Seiso):** Membersihkan area kerja dan mesin dari ceceran oli dan debu setiap akhir sesi.
+4. **Rawat (Seiketsu):** Mempertahankan kondisi 3R sebelumnya sebagai standar operasional baku.
+5. **Rajin (Shitsuke):** Membiasakan disiplin diri menjadi etos kerja tanpa perlu diawasi.`,
+  },
+];
+
+export const INITIAL_QUIZZES: Quiz[] = [
+  {
+    id: 'kuis-ipas-01',
+    title: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    aspect: 'Zat dan Perubahannya',
+    description: 'Uji komprehensif 7 tipe soal: Menguji pemahaman reaksi korosi maritim, limbah B3 bengkel, serta konservasi lingkungan urban Surabaya.',
+    targetClasses: ['X TKR 1', 'X TKR 2', 'X TBSM 1', 'X RPL 1'],
+    durationMinutes: 30,
+    passingScore: 75,
+    isPublished: true,
+    createdAt: '2026-10-12',
+    questions: [
+      // 1. Pilihan Ganda Sederhana
+      {
+        id: 'q1',
+        type: 'pilihan_ganda',
+        text: 'Mengapa laju korosi (perkaratan) pada sasis kendaraan bermotor di kawasan pesisir Surabaya Utara (Tanjung Perak) berlangsung jauh lebih cepat dibandingkan kawasan pegunungan sejuk seperti Tretes?',
+        context: 'Studi kasus bengkel SMK PGRI 5 Surabaya mencatat armada kendaraan di daerah pesisir memerlukan perawatan anti-karat 2 kali lebih sering.',
+        points: 10,
+        aspect: 'Zat dan Perubahannya',
+        difficulty: 'sedang',
+        options: [
+          'Konsentrasi gas oksigen di pesisir lebih rendah sehingga memicu reaksi reduksi',
+          'Udara pesisir mengandung aerosol garam (ion Cl⁻) tinggi yang bertindak sebagai elektrolit kuat',
+          'Suhu pesisir Surabaya memicu pembekuan uap air di permukaan logam',
+          'Tekanan udara di pesisir merusak struktur kristal baja sasis secara spontan',
+        ],
+        correctOptionIndex: 1,
+        explanation: 'Ion klorida (Cl⁻) dari aerosol air laut bertindak sebagai larutan elektrolit yang meningkatkan konduktivitas ionik, mempercepat transfer elektron pada anoda dan katoda reaksi korosi besi.',
+      },
+
+      // 2. Pilihan Ganda Kompleks (Centang Lebih dari Satu)
+      {
+        id: 'q2',
+        type: 'pg_kompleks',
+        text: 'Berdasarkan standar K3LH (Kesehatan, Keselamatan Kerja dan Lingkungan Hidup) di bengkel SMK PGRI 5 Surabaya, manakah tindakan yang BENAR dalam menangani tumpahan oli dan limbah aki bekas? (Pilih semua yang tepat)',
+        context: 'Prosedur operasional baku penanganan limbah B3 cair di bengkel sekolah vokasi.',
+        points: 15,
+        aspect: 'Zat dan Perubahannya',
+        difficulty: 'sedang',
+        options: [
+          'Menaburkan serbuk gergaji atau pasir kering pada tumpahan oli di lantai, lalu mengumpulkannya ke wadah B3 khusus',
+          'Mengalirkan sisa oli bekas langsung ke saluran pembuangan umum (got) dengan disiram detergen busa banyak',
+          'Menyimpan cairan aki bekas (asam sulfat pekat) dalam drum tertutup bertuliskan simbol Korosif dan Berbahaya',
+          'Menyimpan oli bekas di dekat tungku las atau instalasi pemanas agar tidak mengental',
+        ],
+        correctOptionIndices: [0, 2],
+        explanation: 'Tindakan yang benar adalah menggunakan absorbent pad/pasir khusus tumpahan oli (Opsi 1) dan menampung asam sulfat aki di wadah tertutup tahan asam berlabel B3 (Opsi 3). Membuang ke selokan melanggar UU PPLH dan menaruh di dekat api berisiko ledakan.',
+      },
+
+      // 3. Benar / Salah Sederhana
+      {
+        id: 'q3',
+        type: 'benar_salah',
+        text: 'Reaksi penyepuhan logam (galvanisasi) dengan melapisi besi menggunakan seng (Zn) dapat melindungi besi dari karat karena potensial reduksi seng lebih negatif sehingga seng akan teroksidasi lebih dulu mengorbankan dirinya (perlindungan anodik).',
+        points: 10,
+        aspect: 'Zat dan Perubahannya',
+        difficulty: 'mudah',
+        correctBool: true,
+        explanation: 'Pernyataan BENAR. Seng memiliki E° lebih negatif daripada besi, sehingga seng berperan sebagai anoda korban (sacrificial anode) yang melindungi besi dari korosi.',
+      },
+
+      // 4. Benar / Salah Kompleks (Tabel Matriks Pernyataan)
+      {
+        id: 'q4',
+        type: 'bs_kompleks',
+        text: 'Tentukan kebenaran dari masing-masing pernyataan terkait klasifikasi materi dan perubahan zat berikut ini!',
+        points: 15,
+        aspect: 'Zat dan Perubahannya',
+        difficulty: 'sukar',
+        matrixItems: [
+          {
+            id: 'm1',
+            statement: 'Proses pembakaran bahan bakar bensin di dalam silinder mesin menghasilkan gas CO dan CO₂ merupakan contoh perubahan fisika.',
+            correctBool: false,
+          },
+          {
+            id: 'm2',
+            statement: 'Pemisahan fraksi minyak bumi (bensin, solar, avtur) di kilang minyak dilakukan dengan metode distilasi bertingkat berdasarkan perbedaan titik didih.',
+            correctBool: true,
+          },
+          {
+            id: 'm3',
+            statement: 'Pengembunan uap air pada pipa knalpot saat mesin kendaraan pertama kali dihidupkan di pagi hari adalah perubahan kimiawi permanen.',
+            correctBool: false,
+          },
+          {
+            id: 'm4',
+            statement: 'Larutan elektrolit air aki (H₂SO₄) dapat menghantarkan arus listrik karena terionisasi menjadi ion H⁺ dan SO₄²⁻ yang bebas bergerak.',
+            correctBool: true,
+          },
+        ],
+        explanation: 'M1 Salah (perubahan kimia menghasilkan zat baru). M2 Benar (distilasi fraksionasi). M3 Salah (kondensasi adalah perubahan fisika). M4 Benar (larutan elektrolit kuat terionisasi sempurna).',
+      },
+
+      // 5. Menjodohkan (Matching Pairs)
+      {
+        id: 'q5',
+        type: 'menjodohkan',
+        text: 'Pasangkanlah istilah fenomena atau komponen IPAS di sebelah kiri dengan deskripsi/fungsinya yang tepat di sebelah kanan!',
+        points: 20,
+        aspect: 'Zat dan Perubahannya',
+        difficulty: 'sedang',
+        matchingPairs: [
+          {
+            id: 'pair-1',
+            left: 'Katalis Logam Platina (Catalytic Converter)',
+            right: 'Mempercepat pengubahan gas buang beracun (CO, NOx) menjadi gas ramah lingkungan (CO₂, N₂)',
+          },
+          {
+            id: 'pair-2',
+            left: 'Hutan Bakau Wonorejo Surabaya',
+            right: 'Biofilter alami penjerap polutan logam berat dan peredam gelombang abrasi pesisir',
+          },
+          {
+            id: 'pair-3',
+            left: 'Oli Pelumas SAE Multigrade',
+            right: 'Fluida dengan aditif viskositas untuk meminimalkan gaya gesek mekanik pada komponen mesin',
+          },
+          {
+            id: 'pair-4',
+            left: 'Blue Carbon Reservoir',
+            right: 'Penyimpanan karbon alami berdensitas tinggi di sedimen lumpur ekosistem pesisir dan mangrove',
+          },
+        ],
+        explanation: 'Semua pasangan mencerminkan hubungan fungsional antara komponen teknologi kejuruan dan kelestarian ekologi alam.',
+      },
+
+      // 6. Isian Singkat
+      {
+        id: 'q6',
+        type: 'isian_singkat',
+        text: 'Sebutkan nama metode pemisahan campuran yang digunakan untuk menyaring kotoran partikel logam dan jelaga dari oli mesin menggunakan saringan berpori halus pada kendaraan bermotor!',
+        context: 'Perhatikan suku cadang komponen *oil filter* pada sistem sirkulasi pelumasan mesin mobil.',
+        points: 10,
+        aspect: 'Zat dan Perubahannya',
+        difficulty: 'mudah',
+        correctShortAnswers: ['filtrasi', 'penyaringan', 'filter', 'metode filtrasi'],
+        explanation: 'Filtrasi (penyaringan) adalah metode pemisahan campuran heterogen antara zat padat yang tidak larut dengan fluida (cair/gas) menggunakan medium saringan berpori.',
+      },
+
+      // 7. Uraian / Essay Terbuka
+      {
+        id: 'q7',
+        type: 'uraian',
+        text: 'Sebagai calon tenaga ahli kejuruan SMK PGRI 5 Surabaya, jelaskan usulan rencana Anda dalam menerapkan prinsip Green Workshop (Bengkel Hijau) untuk meminimalkan dampak negatif limbah B3 terhadap lingkungan perkotaan Surabaya! Berikan minimal 3 poin solusi nyata beserta dasar pertimbangan ilmiahnya.',
+        context: 'Pemerintah Kota Surabaya menggalakkan standarisasi UKL-UPL dan Surabaya Smart Green City.',
+        points: 20,
+        aspect: 'Zat dan Perubahannya',
+        difficulty: 'sukar',
+        rubricGuide: 'Kriteria Penilaian: (1) Identifikasi minimal 3 jenis limbah bengkel (oli, aki, kain majun, coolant). (2) Solusi 3R (Reuse, Reduce, Recycle) / SOP penampungan berstandar B3. (3) Dampak ilmiah terhadap kesehatan air tanah Surabaya jika tidak dikelola.',
+        explanation: 'Jawaban yang komprehensif memuat: penampungan oli bekas berizin, pemanfaatan filtrasi ulang (re-refining), penerapan kain majun ramah lingkungan yang dicuci terpusat, penghematan energi listrik bengkel dengan ventilasi alami/solar panel, dan sosialisasi SOP K3LH pada seluruh siswa.',
+      },
+    ],
+  },
+  {
+    id: 'kuis-ipas-02',
+    title: 'Kuis Cepat: Energi Terbarukan & Mitigasi Kebencanaan Surabaya',
+    aspect: 'Energi dan Perubahannya',
+    description: 'Latihan penguasaan konsep transformasi energi terbarukan, motor traksi listrik, dan respon tanggap darurat gempa Sesar Waru.',
+    targetClasses: ['X TKR 1', 'X RPL 1', 'X TBSM 1', 'X AKL 1'],
+    durationMinutes: 20,
+    passingScore: 70,
+    isPublished: true,
+    createdAt: '2026-10-16',
+    questions: [
+      {
+        id: 'q2-1',
+        type: 'pilihan_ganda',
+        text: 'Perubahan energi yang terjadi saat kendaraan listrik (Electric Vehicle) melakukan pengereman regeneratif (regenerative braking) adalah...',
+        points: 15,
+        aspect: 'Energi dan Perubahannya',
+        difficulty: 'sedang',
+        options: [
+          'Energi kinetik diubah menjadi energi listrik untuk mengisi ulang baterai traksi',
+          'Energi kimia baterai diubah langsung menjadi energi panas pada kampas rem',
+          'Energi potensial diubah menjadi energi bunyi klakson',
+          'Energi listrik diubah menjadi energi radiasi inframerah',
+        ],
+        correctOptionIndex: 0,
+        explanation: 'Pada regenerative braking, motor listrik beralih fungsi menjadi generator, mengubah energi kinetik putaran roda menjadi energi listrik yang disimpan kembali ke baterai.',
+      },
+      {
+        id: 'q2-2',
+        type: 'benar_salah',
+        text: 'Jika terjadi gempa bumi saat siswa sedang melakukan praktikum di bengkel SMK PGRI 5 Surabaya, tindakan pertama yang tepat adalah segera berlari berebut keluar melalui pintu utama sambil membawa tas dan perkakas.',
+        points: 15,
+        aspect: 'Bumi dan Antariksa',
+        difficulty: 'mudah',
+        correctBool: false,
+        explanation: 'SALAH. Berdesakan di pintu dapat memicu kepanikan dan risiko tertimpa reruntuhan. Tindakan yang benar adalah Drop, Cover, and Hold On (berlindung di bawah meja kokoh) lalu evakuasi tenang saat goncangan mereda.',
+      },
+      {
+        id: 'q2-3',
+        type: 'isian_singkat',
+        text: 'Sebutkan nama lempeng tektonik utama di bagian selatan pulau Jawa yang mengalami proses subduksi menunjam ke bawah Lempeng Eurasia!',
+        points: 20,
+        aspect: 'Bumi dan Antariksa',
+        difficulty: 'sedang',
+        correctShortAnswers: ['indo-australia', 'indo australia', 'lempeng indo australia', 'lempeng indo-australia'],
+        explanation: 'Lempeng Indo-Australia menunjam ke bawah Lempeng Eurasia di selatan Jawa dengan kecepatan ~7 cm per tahun.',
+      },
+    ],
+  },
+];
+
+export const INITIAL_SUBMISSIONS: QuizSubmission[] = [
+  {
+    id: 'sub-01',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-01',
+    studentName: 'Dimas Arya Pamungkas',
+    studentClass: 'X TKR 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
+    answers: {
+      q1: 1,
+      q2: [0, 2],
+      q3: true,
+      q4: { m1: false, m2: true, m3: false, m4: true },
+      q5: {
+        'pair-1': 'Mempercepat pengubahan gas buang beracun (CO, NOx) menjadi gas ramah lingkungan (CO₂, N₂)',
+        'pair-2': 'Biofilter alami penjerap polutan logam berat dan peredam gelombang abrasi pesisir',
+        'pair-3': 'Fluida dengan aditif viskositas untuk meminimalkan gaya gesek mekanik pada komponen mesin',
+        'pair-4': 'Penyimpanan karbon alami berdensitas tinggi di sedimen lumpur ekosistem pesisir dan mangrove',
+      },
+      q6: 'filtrasi',
+      q7: 'Kami mengusulkan program 3R terpadu bengkel: 1. Penampungan oli bekas di drum kedap tertutup dengan palet penahan tumpahan agar tidak merembes ke air tanah Surabaya. 2. Penggantian thinner berbasis benzena dengan pembersih berbahan dasar citrus organik untuk kurangi uap VOC berbahaya. 3. Pemasangan saringan oil-water separator di bak cucian suku cadang.',
+    },
+    records: [
+      { questionId: 'q1', type: 'pilihan_ganda', answer: 1, isCorrect: true, scoreEarned: 10, maxScore: 10 },
+      { questionId: 'q2', type: 'pg_kompleks', answer: [0, 2], isCorrect: true, scoreEarned: 15, maxScore: 15 },
+      { questionId: 'q3', type: 'benar_salah', answer: true, isCorrect: true, scoreEarned: 10, maxScore: 10 },
+      { questionId: 'q4', type: 'bs_kompleks', answer: { m1: false, m2: true, m3: false, m4: true }, isCorrect: true, scoreEarned: 15, maxScore: 15 },
+      { questionId: 'q5', type: 'menjodohkan', answer: {}, isCorrect: true, scoreEarned: 20, maxScore: 20 },
+      { questionId: 'q6', type: 'isian_singkat', answer: 'filtrasi', isCorrect: true, scoreEarned: 10, maxScore: 10 },
+      { questionId: 'q7', type: 'uraian', answer: 'Jawaban lengkap...', isCorrect: true, scoreEarned: 18, maxScore: 20, feedback: 'Analisis sangat solutif dan realistis untuk bengkel SMK.' },
+    ],
+    totalScore: 98,
+    maxScore: 100,
+    percentage: 98,
+    passed: true,
+    startedAt: '2026-10-18T19:30:00Z',
+    submittedAt: '2026-10-18T19:54:12Z',
+    timeSpentSeconds: 1452,
+    status: 'selesai',
+  },
+  {
+    id: 'sub-02',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-02',
+    studentName: 'Aulia Rahmawati',
+    studentClass: 'X RPL 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 88,
+    maxScore: 100,
+    percentage: 88,
+    passed: true,
+    startedAt: '2026-10-18T20:00:00Z',
+    submittedAt: '2026-10-18T20:25:30Z',
+    timeSpentSeconds: 1530,
+    status: 'selesai',
+  },
+  {
+    id: 'sub-03',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-03',
+    studentName: 'Bagus Setiawan',
+    studentClass: 'X TKR 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 78,
+    maxScore: 100,
+    percentage: 78,
+    passed: true,
+    startedAt: '2026-10-18T20:10:00Z',
+    submittedAt: '2026-10-18T20:38:00Z',
+    timeSpentSeconds: 1680,
+    status: 'selesai',
+  },
+  {
+    id: 'sub-04',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-04',
+    studentName: 'Fajar Eko Saputro',
+    studentClass: 'X TBSM 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 62,
+    maxScore: 100,
+    percentage: 62,
+    passed: false,
+    startedAt: '2026-10-18T21:00:00Z',
+    submittedAt: '2026-10-18T21:28:40Z',
+    timeSpentSeconds: 1720,
+    status: 'selesai',
+  },
+  {
+    id: 'sub-05',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-05',
+    studentName: 'Siti Nurhaliza',
+    studentClass: 'X AKL 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 92,
+    maxScore: 100,
+    percentage: 92,
+    passed: true,
+    startedAt: '2026-10-18T21:15:00Z',
+    submittedAt: '2026-10-18T21:39:10Z',
+    timeSpentSeconds: 1450,
+    status: 'selesai',
+  },
+  {
+    id: 'sub-06',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-06',
+    studentName: 'Kevin Wijaya',
+    studentClass: 'X TKR 2',
+    studentAvatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 72,
+    maxScore: 100,
+    percentage: 72,
+    passed: false,
+    startedAt: '2026-10-18T21:30:00Z',
+    submittedAt: '2026-10-18T21:58:20Z',
+    timeSpentSeconds: 1700,
+    status: 'selesai',
+  },
+  {
+    id: 'sub-07',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-07',
+    studentName: 'Nabila Putri Santoso',
+    studentClass: 'X RPL 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 85,
+    maxScore: 100,
+    percentage: 85,
+    passed: true,
+    startedAt: '2026-10-18T22:00:00Z',
+    submittedAt: '2026-10-18T22:24:50Z',
+    timeSpentSeconds: 1490,
+    status: 'selesai',
+  },
+  {
+    id: 'sub-08',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-08',
+    studentName: 'Reno Saputra',
+    studentClass: 'X TBSM 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 68,
+    maxScore: 100,
+    percentage: 68,
+    passed: false,
+    startedAt: '2026-10-18T22:10:00Z',
+    submittedAt: '2026-10-18T22:38:00Z',
+    timeSpentSeconds: 1680,
+    status: 'selesai',
+  },
+  {
+    id: 'sub-09',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-09',
+    studentName: 'Andi Maulana',
+    studentClass: 'X TKR 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 0,
+    maxScore: 100,
+    percentage: 0,
+    passed: false,
+    startedAt: '2026-10-18T22:50:00Z',
+    submittedAt: '',
+    timeSpentSeconds: 920,
+    status: 'sedang_mengerjakan',
+  },
+  {
+    id: 'sub-10',
+    quizId: 'kuis-ipas-01',
+    quizTitle: 'Asesmen Sumatif 1: Zat, Perubahan Kimia & Lingkungan Pesisir Surabaya',
+    studentId: 'siswa-10',
+    studentName: 'Tiara Ayu Lestari',
+    studentClass: 'X AKL 1',
+    studentAvatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80',
+    answers: {},
+    records: [],
+    totalScore: 0,
+    maxScore: 100,
+    percentage: 0,
+    passed: false,
+    startedAt: '2026-10-18T22:55:00Z',
+    submittedAt: '',
+    timeSpentSeconds: 610,
+    status: 'sedang_mengerjakan',
+  },
+];

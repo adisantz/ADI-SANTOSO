@@ -1,0 +1,6 @@
+{
+  "name": "IPAS Smart Learn - SMK PGRI 5 Surabaya",
+  "description": "Platform pembelajaran IPAS SMK PGRI 5 Surabaya dengan modul materi, bank kuis 7 format soal, dashboard guru, analisis performa real-time berbasis AI, serta tema dan profil personal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
